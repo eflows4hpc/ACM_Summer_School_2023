@@ -14,7 +14,7 @@ user@localhost:~> ssh -X nct01XXX@mn1.bsc.es
 3. Copy the necessary files
 
 ```
-nct01XXX@login1:~> cp -R /gpfs/projects/nct00/nct00012/mn4 .
+nct01XXX@login1:~> cp -R /gpfs/projects/nct00/nct00006/mn4 .
 ```
 
 4. You can overwrite the file with the downloaded image
