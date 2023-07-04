@@ -76,8 +76,24 @@ user@localhost:~> docker run -v $PWD/software-catalog:/software-catalog \
 3. Inside the container run the creation of the container image
 ```
 root@b7c3d750f22f:/# python3 image_creation/cic_builder.py --request=image_creation/test_request.json 
-``
+```
 
+During the creation of the image, you can connect MN4 and copy the launch script for this execution 
 
+```
+user@localhost:~> ssh -X nct01XXX@mn1.bsc.es
+
+nct01XXX@login1:~> cp -R /gpfs/projects/nct00/nct00006/wc_mn4 .
+```
+
+4. Once the image is created, copy it to MN4 overwriting the existing one.
+```
+root@b7c3d750f22f:/# scp minimal_workflow_wordcount_skylake_nompi_nogpu_v_v2.sif nct01XXX@mn1.bsc.es:wc_mn4/
+```
+5. Run the launch script in MN4
+```
+nct01XXX@login1:~> cd wc_mn4
+nct01XXX@login1:~/wc_mn4>./launch_simulation.sh 
+```
 
 
