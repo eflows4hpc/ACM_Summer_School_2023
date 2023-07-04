@@ -55,6 +55,28 @@ DONE
 nct01XXX@login1:~/mn4/runs/.COMPSs/28564478/monitor> evince complete_graph.pdf
 ```
 
+Instructions to run Container Image Creation on your local computer
+==================================================================
+
+Before running be sure you have the docker service running in your computer
+
+1. Clone the software catalogue
+
+```
+user@localhost:~> git clone https://github.com/eflows4hpc/software-catalog.git
+```
+
+2. Run the docker container image creation mounting the Software Catalogue location and the docker socket
+```
+user@localhost:~> docker run -v $PWD/software-catalog:/software-catalog \
+           -v /var/run/docker.sock:/var/run/docker.sock \
+           -it ghcr.io/eflows4hpc/image_creation:acm_2023 /bin/bash
+```
+
+3. Inside the container run the creation of the container image
+```
+root@b7c3d750f22f:/# python3 image_creation/cic_builder.py --request=image_creation/test_request.json 
+``
 
 
 
