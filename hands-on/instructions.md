@@ -95,5 +95,23 @@ root@b7c3d750f22f:/# scp minimal_workflow_wordcount_skylake_nompi_nogpu_v_v2.sif
 nct01XXX@login1:~> cd wc_mn4
 nct01XXX@login1:~/wc_mn4>./launch_simulation.sh 
 ```
+# Building images different from the host platform
+If you want to create container images from another platform than your host (e.g. you have an arm64 (M1) and want to run for amd64) you need to run an extra config step to setup qemu-user-static and binfmt-support packages in your OS. 
+For instance, in an Ubuntu distribution, it can be done with the following command. 
+```
+sudo apt-get install qemu binfmt-support qemu-user-static 
+```
+In OSX you must enable the experimental features in the Docker engine.
+
+Once installed run the following command to enable the multi-platform environment
+
+```
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes # This step will execute the registering
+```
+Finally, once you enter the container (step 2), you need to create a builder for docker buildx
+
+```
+root@b7c3d750f22f:/# docker buildx create --name mybuilder
+```
 
 
