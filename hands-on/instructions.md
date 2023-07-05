@@ -96,7 +96,7 @@ root@b7c3d750f22f:/# scp /tmp/images/minimal_workflow_wordcount_skylake_nompi_no
 nct01XXX@login1:~> cd wc_mn4
 nct01XXX@login1:~/wc_mn4>./launch_simulation.sh 
 ```
-# Building images different from the host platform
+## Building images different from the host platform
 If you want to create container images from another platform than your host (e.g. you have an arm64 (M1) and want to run for amd64) you need to run an extra config step to setup qemu-user-static and binfmt-support packages in your OS. 
 For instance, in an Ubuntu distribution, it can be done with the following command. 
 ```
