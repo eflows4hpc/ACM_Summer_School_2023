@@ -1,3 +1,8 @@
+Container Image Creation URL
+============================
+
+https://eflows4hpc.bsc.es/image_creation/
+
 Instructions to run ROM workflow in MN4
 =======================================
 
